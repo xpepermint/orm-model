@@ -2,7 +2,7 @@
 
 ![Build Status](https://travis-ci.org/xpepermint/orm-model.svg?branch=master)&nbsp;[![NPM version](https://badge.fury.io/js/orm-model.svg)](http://badge.fury.io/js/orm-model)&nbsp;[![Dependency Status](https://gemnasium.com/xpepermint/orm-model.svg)](https://gemnasium.com/xpepermint/orm-model)
 
-ORM libraries are great but they usually left you with a gigant and unstructured block of code. You have to manually figure the right way on how to split the code into multiple files and it gets event worse when you have multiple databases or even multiple ORMs.
+ORM libraries are great but they usually left you with a gigantic and unstructured block of code. You have to manually figure the right way on how to split the code into multiple files and it gets event worse when you have multiple databases or even multiple ORMs.
 
 This module brings unified MVC-style structure for models into your NodeJS project. Currently the [mongoose](http://mongoosejs.com/) and [sequelize](http://sequelizejs.com) ORMs are supported.
 
