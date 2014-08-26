@@ -1,10 +1,19 @@
 var orm = require('..');
-orm.connect({
-  connectorsPath: __dirname+'/app/config/connectors.js',
-  modelsPath: __dirname+'/app/models'
-});
 
 describe('mongoose', function() {
+
+  beforeEach(function(done) {
+    orm.connect({
+      connectorsPath: __dirname+'/app/config/connectors.js',
+      modelsPath: __dirname+'/app/models'
+    });
+    orm.model('bird').remove({}, done);
+  });
+
+  afterEach(function() {
+    orm.disconnect();
+  });
+
   describe('model', function() {
 
     it('should handle `discriminators`', function(done) {
