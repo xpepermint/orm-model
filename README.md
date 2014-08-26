@@ -27,7 +27,7 @@ module.exports = {
     // mongoose database connector
     'mongo-db': {
       orm: 'mongoose',
-      uris: ['mongodb://user:secret@hostname:port/database'],
+      uris: 'mongodb://user:secret@hostname:port/database',
       options: {}
     },
 
@@ -37,7 +37,7 @@ module.exports = {
       database: 'database',
       username: 'root',
       password: 'secret',
-      options: { dialect: 'mysql' }
+      options: {}
     }
   },
 
@@ -56,12 +56,9 @@ module.exports = {
   },
   classMethods: {},
   instanceMethods: {},
-  plugins: [{ fn: require('mongoose-timestamp'), options: { index:true } }],
-  middleware: {
-    pre: [{ event: 'save', fn: function(next) { next() }}],
-    post: [{ event: 'save', fn: function(model) { }}]
-  },
-  options: { strict: true }
+  plugins: [],
+  middleware: {},
+  options: {}
 };
 ```
 ```js

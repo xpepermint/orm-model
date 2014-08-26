@@ -1,10 +1,10 @@
 {
   "name": "orm-model",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Unified MVC-style structure for ORM models.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/jasmine-node/bin/jasmine-node ./spec --verbose"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,12 @@
     "lodash": "^2.4.1",
     "mongoose": "^3.9.1",
     "mysql": "^2.4.2",
-    "natural": "^0.1.28",
     "pg": "^3.4.1",
     "sequelize": "^2.0.0-dev12",
     "sqlite3": "^2.2.7"
+  },
+  "devDependencies": {
+    "jasmine-node": "^2.0.0",
+    "mongoose-timestamp": "^0.3.0"
   }
 }
