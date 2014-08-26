@@ -16,7 +16,7 @@ npm install orm-model --save
 
 ## Setup
 
-Let's first configure project's **database connectors**. By default the module will try to read the `config/connectors.js` configuration file so let's create it. The file content should look like the example bellow.
+Let's first configure project's **database connectors** (connections). By default the module will try to read the `config/connectors.js` configuration file so let's create it. The file content should look like the example bellow.
 
 ```js
 // config/connectors.js
