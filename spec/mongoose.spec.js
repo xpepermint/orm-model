@@ -1,20 +1,30 @@
 var orm = require('..');
+var connections = require('../lib/connections');
+var connectors = require(__dirname+'/app/config/connectors.js').default;
 
 describe('mongoose', function() {
+  describe('connection', function() {
 
-  beforeEach(function(done) {
-    orm.connect({
-      connectorsPath: __dirname+'/app/config/connectors.js',
-      modelsPath: __dirname+'/app/models'
+    it('should recognise `origin`', function() {
+      var conn = require('../lib/connections/mongoose')(connectors['mongo-db']);
+      expect(connections.typeof(conn)).toBe('mongoose');
+      conn.close();
     });
-    orm.model('bird').remove({}, done);
-  });
 
-  afterEach(function() {
-    orm.disconnect();
   });
-
   describe('model', function() {
+
+    beforeEach(function(done) {
+      orm.connect({
+        connectorsPath: __dirname+'/app/config/connectors.js',
+        modelsPath: __dirname+'/app/models'
+      });
+      orm.model('bird').remove({}, done);
+    });
+
+    afterEach(function() {
+      orm.disconnect();
+    });
 
     it('should handle `discriminators`', function(done) {
       orm.model('bird').create({ name: 'x' }, function(err, data) {
