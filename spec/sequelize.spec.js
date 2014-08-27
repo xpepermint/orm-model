@@ -6,7 +6,7 @@ describe('mongoose', function() {
   describe('connection', function() {
 
     it('should recognise `origin`', function() {
-      var conn = require('../lib/connections/sequelize')(connectors['seq-db']);
+      var conn = require('../lib/connections/sequelize')(connectors['seq-db'], {});
       expect(connections.typeof(conn)).toBe('sequelize');
     });
 

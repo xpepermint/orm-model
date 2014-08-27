@@ -6,7 +6,7 @@ describe('mongoose', function() {
   describe('connection', function() {
 
     it('should recognise `origin`', function() {
-      var conn = require('../lib/connections/mongoose')(connectors['mongo-db']);
+      var conn = require('../lib/connections/mongoose')(connectors['mongo-db'], {});
       expect(connections.typeof(conn)).toBe('mongoose');
       conn.close();
     });
