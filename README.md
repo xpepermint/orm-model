@@ -18,7 +18,7 @@ npm install orm-model --save
 
 Let's first configure project's **database connectors** (connections). By default the module will try to read the `config/connectors.js` configuration file so let's create it. The file content should look like the example bellow.
 
-```js
+```
 // config/connectors.js
 module.exports = {
 
@@ -47,7 +47,7 @@ module.exports = {
 
 The next step is to **define models**. The module will load files found at `app/models`. Let's create two models for `mongo-db` connector and two models for `seq-db` connector (defined earlier).
 
-```js
+```
 // app/models/animal.js (mongoose model)
 module.exports = {
   connector: 'mongo-db',
@@ -61,14 +61,14 @@ module.exports = {
   options: {}
 };
 ```
-```js
+```
 // app/models/bird.js (mongoose discriminator of animal)
 module.exports = {
   connector: 'mongo-db',
   extends: 'animal'
 };
 ```
-```js
+```
 // app/models/user.js (sequelize model)
 module.exports = {
   connector: 'seq-db',
@@ -81,7 +81,7 @@ module.exports = {
   }
 };
 ```
-```js
+```
 // app/models/friend.js (sequelize model extends from user)
 module.exports = {
   connector: 'seq-db',
@@ -93,9 +93,26 @@ Now we only have to **load and connect** connectors and models together to make 
 
 ```js
 var orm = require('../orm-model');
+orm.connect();
+```
+
+## Configuration
+
+The module can be configured by sending options to the `orm.connect` method. See
+the list of available options bellow.
+
+```
 orm.connect({
-  connectorsPath: 'new/file/path.js', // optional
-  modelsPath: 'new/directory/path' // optional
+
+  // Path to a file where database connectors are defined.
+  connectorsPath: 'new/file/path.js',
+
+  // Path to a directory with models files.
+  modelsPath: 'new/directory/path',
+
+  // Custom logger function (set to `false` by default).
+  logger: winston.info
+
 });
 ```
 

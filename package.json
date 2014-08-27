@@ -1,6 +1,6 @@
 {
   "name": "orm-model",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Unified MVC-style structure for ORM models.",
   "main": "index.js",
   "scripts": {
