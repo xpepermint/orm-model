@@ -112,6 +112,11 @@ orm.connect({
 
   // Custom logger function (set to `false` by default).
   logger: winston.info
+  // Custom logger function per ORM
+  logger: {
+    mongoose: require('common-log').fn({ level: debug, language: 'sql' }),
+    sequelize: winston.info
+  }
 
 });
 ```
